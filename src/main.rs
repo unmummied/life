@@ -15,7 +15,7 @@ use world::World;
 
 const HISTORY_TXT: &str = "out/world.txt";
 const STATS_CSV: &str = "out/stats.csv";
-const MAX_GEN: usize = 50_716; // "Engineered Diehard" ended at `MAX_GEN`.
+const MAX_GEN: usize = 50_717;
 
 #[derive(Serialize)]
 struct StatsRow {
@@ -47,7 +47,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         writeln!(history_wtr, "{g}: {pattern:?}")?;
         stats_wtr.serialize(StatsRow {
             g,
-            pop: world.len(),
+            pop: world.population(),
             svv,
             bab,
         })?;

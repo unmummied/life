@@ -66,8 +66,8 @@ impl World<(i32, i32)> for HashSet<(i32, i32)> {
         let babies = self.babies();
         (
             survivors.union(&babies).copied().collect(),
-            survivors.len(),
-            babies.len(),
+            survivors.population(),
+            babies.population(),
         )
     }
 
